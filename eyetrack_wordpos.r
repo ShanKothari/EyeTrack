@@ -1,3 +1,8 @@
+## Note: this code is for determining the screen position of words from a text
+## given assumptions of vertical centering, and strict margins
+## It was intended for use with the Digital Humanities and Literary Cognition Lab's
+## Mansfield Park fMRI project to replicate PsychoPy's text placement.
+
 ##word_dims is an array with words in row 1, pixel lengths in row 2, heights
 ##(if needed) in row 3
 
