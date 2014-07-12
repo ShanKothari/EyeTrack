@@ -19,10 +19,7 @@
 word_pos<-function(word_dims,line_height,space_length,margin){
 ## look more closely at xcoord designations here - do they work for any possible inputs?
 	word_lines<-line_number(word_dims,space_length)
-	## calls line_number to make a new array where each word is assigned a line number
-	ycoord1=as.numeric(word_lines[,4])/2*line_height
-	ycoord2=(as.numeric(word_lines[,4])/2-1)*line_height
-	lines=0
+	## calls line_number to make a new array (word_lines) where each word is assigned a line number
 	## word_positions columns represent the word, left x-coord, right x-coord, top y-coord, and bottom y-coord
 	word_positions<-array(dim=c(dim(word_lines)[[1]],5))
 	word_positions[,1]<-word_lines[,1]
