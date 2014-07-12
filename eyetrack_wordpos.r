@@ -1,37 +1,15 @@
+#####################################
 ## Note: this code is for determining the screen position of words from a text
 ## given assumptions of vertical centering, and strict margins
 ## It was intended for use with the Digital Humanities and Literary Cognition Lab's
 ## Mansfield Park fMRI project to replicate PsychoPy's text placement.
+##
+## It calls the function line_number to determine the number of lines in the text
+## for use in vertical centering
+#####################################
 
-##word_dims is an array with words in row 1, pixel lengths in row 2, heights
+##word_dims is an array with words in row 1, pixel lengths of words in row 2, heights
 ##(if needed) in row 3
-
-line_number<-function(word_dims,space_length,margin){
-	lines=1
-	tot_length=0
-	word_lines<-array(dim=c(dim(word_dims)[[1]],4))
-	word_lines[,1:3]<-word_dims
-	for(i in 1:dim(word_dims)[[1]]){
-##"\r" denotes a return in the text; two denote a blank line
-		if(word_dims[i,1]=="\r"){
-			tot_length=0
-			word_lines[i,4]<-lines
-			lines=lines+1
-		}
-		else{
-			if(tot_length+as.numeric(word_dims[i,2])+space_length>(2*margin)){
-				tot_length=as.numeric(word_dims[i,2])
-				lines=lines+1
-				word_lines[i,4]<-lines
-			}
-			else{
-				tot_length<-tot_length+as.numeric(word_dims[i,2])+space_length
-				word_lines[i,4]<-lines
-			}
-		}
-	}
-	print(word_lines)
-}
 
 ## to work on for word_pos function
 ## what if \r begins the chunk?
